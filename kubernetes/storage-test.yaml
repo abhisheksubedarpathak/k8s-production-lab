@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storage-test
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storage-test
+  template:
+    metadata:
+      labels:
+        app: storage-test
+    spec:
+      containers:
+        - name: storage-test
+          image: busybox:1.36
+          command: ["sh", "-c", "sleep 36000"]
+          volumeMounts:
+            - name: ecommerce-storage
+              mountPath: /data
+      volumes:
+        - name: ecommerce-storage
+          persistentVolumeClaim:
+            claimName: ecommerce-data

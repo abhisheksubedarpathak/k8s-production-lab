@@ -1,0 +1,33 @@
+# Secrets and credentials
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+
+# Local secret manifests only
+/secrets/
+**/secrets/
+
+# Kubernetes sensitive files
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+*.tfvars.json
+
+# Local files
+*.log
+*.tmp
+.DS_Store
+
+# Local Helm values and backups
+helm/three-tier-app/values.yaml.bak
+helm/three-tier-app/values-local.yaml

@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: developer-cluster-viewer-global
+subjects:
+  - kind: ServiceAccount
+    name: developer
+    namespace: ecommerce
+roleRef:
+  kind: ClusterRole
+  name: developer-cluster-viewer
+  apiGroup: rbac.authorization.k8s.io
