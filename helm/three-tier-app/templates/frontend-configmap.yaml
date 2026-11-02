@@ -6,6 +6,7 @@ metadata:
 data:
   default.conf: |
     # GitOps Auto-Sync Test
+    # Rollback Simulation - version 2
     server {
         listen 80;
         server_name _;
