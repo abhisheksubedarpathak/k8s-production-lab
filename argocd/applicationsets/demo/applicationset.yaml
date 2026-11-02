@@ -7,20 +7,24 @@ spec:
   generators:
     - list:
         elements:
-          - cluster: local
-            url: https://kubernetes.default.svc
-            namespace: applicationset-demo
+          - env: dev
+            namespace: nginx-dev
+          - env: stage
+            namespace: nginx-stage
+          - env: prod
+            namespace: nginx-prod
+
   template:
     metadata:
-      name: nginx-{{cluster}}
+      name: nginx-{{env}}
     spec:
       project: default
       source:
         repoURL: https://github.com/abhisheksubedarpathak/k8s-production-lab.git
         targetRevision: main
-        path: argocd/applicationsets/demo/app
+        path: argocd/applicationsets/demo/environments/{{env}}
       destination:
-        server: '{{url}}'
+        server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
       syncPolicy:
         automated:
