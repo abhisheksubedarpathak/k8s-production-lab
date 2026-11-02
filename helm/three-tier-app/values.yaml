@@ -195,7 +195,7 @@ database:
 
   name: appdb
   username: appuser
-  password: ""
+  existingSecret: demo-db-credentials
 
   storage: 1Gi
 
