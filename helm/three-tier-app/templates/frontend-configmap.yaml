@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 data:
   default.conf: |
+    # GitOps Auto-Sync Test
     server {
         listen 80;
         server_name _;
